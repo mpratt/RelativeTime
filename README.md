@@ -1,6 +1,6 @@
 RelativeTime
 ============
-[![Build Status](https://secure.travis-ci.org/mpratt/RelativeTime.png?branch=master)](http://travis-ci.org/mpratt/RelativeTime) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mpratt/RelativeTime/badges/quality-score.png?s=7d8978c141f211feed8a9226a11e0eaeb5ea2c2d)](https://scrutinizer-ci.com/g/mpratt/RelativeTime/) [![Code Coverage](https://scrutinizer-ci.com/g/mpratt/RelativeTime/badges/coverage.png?s=aacc53653692a9ed3e24851707ead24346124351)](https://scrutinizer-ci.com/g/mpratt/RelativeTime/)
+[![Build Status](https://secure.travis-ci.org/mpratt/RelativeTime.png?branch=master)](http://travis-ci.org/mpratt/RelativeTime) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mpratt/RelativeTime/badges/quality-score.png?s=7d8978c141f211feed8a9226a11e0eaeb5ea2c2d)](https://scrutinizer-ci.com/g/mpratt/RelativeTime/) [![Code Coverage](https://scrutinizer-ci.com/g/mpratt/RelativeTime/badges/coverage.png?s=aacc53653692a9ed3e24851707ead24346124351)](https://scrutinizer-ci.com/g/mpratt/RelativeTime/) [![Latest Stable Version](https://poser.pugx.org/mpratt/relativetime/v/stable.png)](https://packagist.org/packages/mpratt/relativetime) [![Total Downloads](https://poser.pugx.org/mpratt/relativetime/downloads.png)](https://packagist.org/packages/mpratt/relativetime)
 
 RelativeTime is a lightweight and easy to use library that helps you calculate the time difference between two dates and returns the result in words
 (like, 5 minutes ago or 5 Minutes left).  The library supports other languages aswell like Spanish and German.

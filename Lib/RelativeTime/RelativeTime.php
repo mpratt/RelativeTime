@@ -18,7 +18,7 @@ namespace RelativeTime;
 class RelativeTime
 {
     /** @var int Class constant with the current Version of this library */
-    const VERSION = '0.9';
+    const VERSION = '1.0';
 
     /** @var array Array With configuration options **/
     protected $config = array();
