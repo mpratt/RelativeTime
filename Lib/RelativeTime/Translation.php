@@ -12,6 +12,12 @@
 
 namespace RelativeTime;
 
+use \RelativeTime\Languages\English;
+use \RelativeTime\Languages\Spanish;
+use \RelativeTime\Languages\German;
+use \RelativeTime\Languages\PortugueseBR;
+use \ArrayAccess;
+
 /**
  * This class is responsible for translating
  * an array with time units into a string of
@@ -31,7 +37,7 @@ class Translation
     public function __construct(array $config = array())
     {
         $this->config = array_merge(array(
-            'language' => '\RelativeTime\Languages\English',
+            'language' => new English(),
             'separator' => ', ',
             'suffix' => true,
         ), $config);
@@ -47,25 +53,29 @@ class Translation
     public function translate(array $units = array(), $direction = 0)
     {
         $lang = $this->loadLanguage();
-        if (empty($units))
+        if (empty($units)) {
             return $lang['now'];
+        }
 
         $translation = array();
-        foreach ($units as $unit => $v)
-        {
-            if ($v == 1)
+        foreach ($units as $unit => $v) {
+            if ($v == 1) {
                 $translation[] = sprintf($lang[$unit]['singular'], $v);
-            else
+            } else {
                 $translation[] = sprintf($lang[$unit]['plural'], $v);
+            }
         }
 
         $string = implode($this->config['separator'], $translation);
-        if (!$this->config['suffix'])
+        if (!$this->config['suffix']) {
             return $string;
-        else if ($direction > 0)
-            return sprintf($lang['ago'], $string);
+        }
 
-        return sprintf($lang['left'], $string);
+        if ($direction > 0) {
+            return sprintf($lang['ago'], $string);
+        } else {
+            return sprintf($lang['left'], $string);
+        }
     }
 
     /**
@@ -75,18 +85,28 @@ class Translation
      */
     protected function LoadLanguage()
     {
-        $languages = array(
-            '\RelativeTime\Languages\\' . $this->config['language'],
-            $this->config['language'],
-        );
+        if (is_object($this->config['language'])) {
+            $l = $this->config['language'];
+        } else {
+            $languages = array(
+                $this->config['language'],
+                '\RelativeTime\Languages\\' . $this->config['language'],
+            );
 
-        foreach ($languages as $lang)
-        {
-            if (class_exists($lang))
-                return new $lang();
+            $l = null;
+            foreach ($languages as $lang) {
+                if (class_exists($lang)) {
+                    $l = new $lang();
+                    break;
+                }
+            }
         }
 
-        return new \RelativeTime\Languages\English();
+        if ($l instanceof ArrayAccess) {
+            return $l;
+        }
+
+        return new English();
     }
 }
 ?>

@@ -12,13 +12,18 @@
 
 namespace RelativeTime;
 
+use \RelativeTime\Languages\English;
+use \RelativeTime\Translation;
+use \DateTime;
+use \DateInterval;
+
 /**
  * The Main Class of the library
  */
 class RelativeTime
 {
     /** @var int Class constant with the current Version of this library */
-    const VERSION = '1.0';
+    const VERSION = '1.5';
 
     /** @var array Array With configuration options **/
     protected $config = array();
@@ -35,13 +40,13 @@ class RelativeTime
     public function __construct(array $config = array())
     {
         $this->config = array_merge(array(
-            'language' => '\RelativeTime\Languages\English',
+            'language' => new English(),
             'separator' => ', ',
             'suffix' => true,
             'truncate' => 0,
         ), $config);
 
-        $this->translation = new \RelativeTime\Translation($this->config);
+        $this->translation = new Translation($this->config);
     }
 
     /**
@@ -55,6 +60,7 @@ class RelativeTime
     {
         $interval = $this->getInterval($fromTime, $toTime);
         $units = $this->calculateUnits($interval);
+
         return $this->translation->translate($units, $interval->invert);
     }
 
@@ -67,8 +73,9 @@ class RelativeTime
     public function TimeAgo($date)
     {
         $interval = $this->getInterval(time(), $date);
-        if ($interval->invert)
+        if ($interval->invert) {
             return $this->convert(time(), $date);
+        }
 
         return $this->translation->translate();
     }
@@ -82,8 +89,9 @@ class RelativeTime
     public function TimeLeft($date)
     {
         $interval = $this->getInterval($date, time());
-        if ($interval->invert)
+        if ($interval->invert) {
             return $this->convert(time(), $date);
+        }
 
         return $this->translation->translate();
     }
@@ -98,13 +106,14 @@ class RelativeTime
      */
     protected function getInterval($fromTime, $toTime = null)
     {
-        $fromTime = new \DateTime($this->normalizeDate($fromTime));
-        $toTime   = new \DateTime($this->normalizeDate($toTime));
+        $fromTime = new DateTime($this->normalizeDate($fromTime));
+        $toTime   = new DateTime($this->normalizeDate($toTime));
+
         return $fromTime->diff($toTime);
     }
 
     /**
-     * Normalizes a date for the \DateTime class
+     * Normalizes a date for the DateTime class
      *
      * @param string $date
      * @return string
@@ -112,10 +121,12 @@ class RelativeTime
     protected function normalizeDate($date)
     {
         $date = str_replace(array('/', '|'), '-', $date);
-        if (empty($date))
+
+        if (empty($date)) {
             return date('Y-m-d H:i:s');
-        else if (ctype_digit($date))
+        } else if (ctype_digit($date)) {
             return date('Y-m-d H:i:s', $date);
+        }
 
         return $date;
     }
@@ -124,10 +135,10 @@ class RelativeTime
      * Given a DateInterval, creates an array with the time
      * units and truncates it when necesary.
      *
-     * @param object $interval Instance of \DateInterval
+     * @param object $interval Instance of DateInterval
      * @return array
      */
-    protected function calculateUnits(\DateInterval $interval)
+    protected function calculateUnits(DateInterval $interval)
     {
         $units = array_filter(array(
             'years'   => (int) $interval->y,
@@ -138,12 +149,13 @@ class RelativeTime
             'seconds' => (int) $interval->s,
         ));
 
-        if (empty($units))
+        if (empty($units)) {
             return array();
-        else if ($this->config['truncate'] > 0)
-            return array_slice($units, 0, $this->config['truncate']);
-        else
-            return $units;
+        } else if ((int) $this->config['truncate'] > 0) {
+            return array_slice($units, 0, (int) $this->config['truncate']);
+        }
+
+        return $units;
     }
 }
 ?>
