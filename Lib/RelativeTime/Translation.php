@@ -32,7 +32,7 @@ class Translation
      * Construct
      *
      * @param array $config Associative array with configuration directives
-     * @return void
+     *
      */
     public function __construct(array $config = array())
     {
@@ -81,7 +81,7 @@ class Translation
     /**
      * Loads the language definitions
      *
-     * @return object
+     * @return ArrayAccess
      */
     protected function LoadLanguage()
     {

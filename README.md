@@ -20,7 +20,7 @@ dependencies, you can use this library by creating a composer.json file and addi
 
     {
         "require": {
-            "mpratt/relativetime": ">=1.0"
+            "mpratt/relativetime": "~1.0"
         }
     }
 
@@ -84,11 +84,10 @@ The main object accepts an array with configuration directives
 
 | Directive     | Definition
 | ------------- |:-------------:
-| language      | The language to be used, for example `English`, `Spanish` or `German` are supported. You can give the full class name (with namespaces) or just the last level of the namespace
+| language      | The language to be used, for example `English`, `Spanish`,  `PortugueseBR` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()`
 | separator     | The separator between time units. `, ` by default.
 | truncate      | The number of units you want to display. By default it displays all of the available ones.
 | suffix        | Wether or not to append the `.... ago` or `..... left`
-
 
 License
 =======

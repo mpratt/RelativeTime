@@ -35,7 +35,7 @@ class RelativeTime
      * Construct
      *
      * @param array $config Associative array with configuration directives
-     * @return void
+     *
      */
     public function __construct(array $config = array())
     {
@@ -102,7 +102,7 @@ class RelativeTime
      *
      * @param string $fromTime
      * @param string $toTime When null is given, uses the current date.
-     * @return array
+     * @return DateInterval
      */
     protected function getInterval($fromTime, $toTime = null)
     {
@@ -135,7 +135,7 @@ class RelativeTime
      * Given a DateInterval, creates an array with the time
      * units and truncates it when necesary.
      *
-     * @param object $interval Instance of DateInterval
+     * @param DateInterval $interval
      * @return array
      */
     protected function calculateUnits(DateInterval $interval)
