@@ -94,6 +94,17 @@ class TestTranslation extends PHPUnit_Framework_TestCase
         $result = $translation->translate($units, 0);
 
         $this->assertEquals($result, '1 Stunde, 5 Tage');
+
+
+        $translation = new \relativetime\translation(array('suffix' => false, 'language' => '\RelativeTime\Languages\PortugueseBR'));
+        $result = $translation->translate($units, 0);
+
+        $this->assertEquals($result, '1 hora, 5 dias');
+
+        $translation = new \relativetime\translation(array('suffix' => false, 'language' => new \RelativeTime\Languages\German()));
+        $result = $translation->translate($units, 0);
+
+        $this->assertEquals($result, '1 Stunde, 5 Tage');
     }
 }
 

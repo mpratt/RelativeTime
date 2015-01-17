@@ -55,6 +55,10 @@ class TestRelativeTime extends PHPUnit_Framework_TestCase
         // Stamp 1382047200 = 2013-10-17 17:00:00
         $result = $rt->convert(1379455200, 1382047200);
         $this->assertEquals($result, '1 month left');
+
+        // No dates means, current date
+        $result = $rt->convert(null, null);
+        $this->assertEquals($result, 'just now');
     }
 
     public function testTimeConversion()
