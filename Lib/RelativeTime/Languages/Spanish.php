@@ -15,7 +15,7 @@ namespace RelativeTime\Languages;
 /**
  * Spanish Translation
  */
-class Spanish extends \RelativeTime\Adapters\Language
+class Spanish extends LanguageAdapter
 {
     protected $strings = array(
         'now' => 'justo ahora',

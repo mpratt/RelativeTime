@@ -1,6 +1,6 @@
 <?php
 /**
- * Portuguese_BR.php
+ * PortugueseBR.php
  *
  * @author  Fábio Pinho <fabiopinhorj@gmail.com>
  * @link    http://www.fabiopinho.com.br/
@@ -15,7 +15,7 @@ namespace RelativeTime\Languages;
 /**
  * Portuguese BR Translation
  */
-class Portuguese_BR extends \RelativeTime\Adapters\Language
+class PortugueseBR extends LanguageAdapter
 {
     protected $strings = array(
         'now' => 'agora',

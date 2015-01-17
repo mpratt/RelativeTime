@@ -10,15 +10,19 @@
  *
  */
 
-namespace RelativeTime\Adapters;
+namespace RelativeTime\Languages;
+
+use \ArrayAccess;
+use \InvalidArgumentException;
 
 /**
  * Abstract class for language definitions.
  * It basically gives the option to use an object
  * as as an array.
  */
-abstract class Language implements \ArrayAccess
+abstract class LanguageAdapter implements ArrayAccess
 {
+    /** @var array Array with strings */
     protected $strings = array();
 
     /**
@@ -27,7 +31,10 @@ abstract class Language implements \ArrayAccess
      * @param string $id
      * @param string $value
      */
-    public function offsetSet($id, $value) { $this->strings[$id] = $value; }
+    public function offsetSet($id, $value)
+    {
+        $this->strings[$id] = $value;
+    }
 
     /**
      * Gets a parameter
@@ -39,8 +46,9 @@ abstract class Language implements \ArrayAccess
      */
     public function offsetGet($id)
     {
-        if (!array_key_exists($id, $this->strings))
-            throw new \InvalidArgumentException($id . ' is not defined');
+        if (!array_key_exists($id, $this->strings)) {
+            throw new InvalidArgumentException($id . ' is not defined');
+        }
 
         return $this->strings[$id];
     }
@@ -51,7 +59,10 @@ abstract class Language implements \ArrayAccess
      * @param string $id
      * @return bool
      */
-    public function offsetExists($id) { return array_key_exists($id, $this->strings); }
+    public function offsetExists($id)
+    {
+        return array_key_exists($id, $this->strings);
+    }
 
     /**
      * Unsets a parameter
@@ -59,14 +70,20 @@ abstract class Language implements \ArrayAccess
      * @param string $id
      * @return void
      */
-    public function offsetUnset($id) { unset($this->strings[$id]); }
+    public function offsetUnset($id)
+    {
+        unset($this->strings[$id]);
+    }
 
     /**
      * Returns all defined keys
      *
      * @return array
      */
-    public function keys() { return array_keys($this->strings); }
+    public function keys()
+    {
+        return array_keys($this->strings);
+    }
 }
 
 ?>

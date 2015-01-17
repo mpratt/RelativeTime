@@ -15,7 +15,7 @@ namespace RelativeTime\Languages;
 /**
  * German Translation
  */
-class German extends \RelativeTime\Adapters\Language
+class German extends LanguageAdapter
 {
     protected $strings = array(
         'now' => 'just now',
