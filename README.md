@@ -3,7 +3,7 @@ RelativeTime
 [![Build Status](https://secure.travis-ci.org/mpratt/RelativeTime.png?branch=master)](http://travis-ci.org/mpratt/RelativeTime) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mpratt/RelativeTime/badges/quality-score.png?s=7d8978c141f211feed8a9226a11e0eaeb5ea2c2d)](https://scrutinizer-ci.com/g/mpratt/RelativeTime/) [![Code Coverage](https://scrutinizer-ci.com/g/mpratt/RelativeTime/badges/coverage.png?s=aacc53653692a9ed3e24851707ead24346124351)](https://scrutinizer-ci.com/g/mpratt/RelativeTime/) [![Latest Stable Version](https://poser.pugx.org/mpratt/relativetime/v/stable.png)](https://packagist.org/packages/mpratt/relativetime) [![Total Downloads](https://poser.pugx.org/mpratt/relativetime/downloads.png)](https://packagist.org/packages/mpratt/relativetime)
 
 RelativeTime is a lightweight and easy to use library that helps you calculate the time difference between two dates and returns the result in words
-(like, 5 minutes ago or 5 Minutes left).  The library supports other languages aswell like Spanish and German.
+(like, 5 minutes ago or 5 minutes left).  The library supports other languages as well like Spanish and German.
 
 It uses the standard \DateTime() and \DateInterval() classes found in modern PHP versions. For more information, please read the `Usage` section of
 this README.
@@ -35,7 +35,8 @@ the included `Autoload.php` file.
     $relativeTime = new \RelativeTime\RelativeTime();
 ```
 
-Or if you already have PSR-0 complaint autoloader, you just need to register RelativeTime
+Or if you already have PSR-0 compliant autoloader, you just need to register RelativeTime:
+
 ```php
     $loader->registerNamespace('RelativeTime', 'path/to/RelativeTime');
 ```
@@ -87,7 +88,7 @@ The main object accepts an array with configuration directives
 | language      | The language to be used, for example `English`, `Spanish`,  `PortugueseBR` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()`
 | separator     | The separator between time units. `, ` by default.
 | truncate      | The number of units you want to display. By default it displays all of the available ones.
-| suffix        | Wether or not to append the `.... ago` or `..... left`
+| suffix        | Whether or not to append the `.... ago` or `..... left`
 
 License
 =======
@@ -97,4 +98,4 @@ For the full copyright and license information, please view the LICENSE file.
 Author
 =====
 Hi! I'm Michael Pratt and I'm from Colombia!
-My [Personal Website](http://www.michael-pratt.com) is in spanish.
+My [Personal Website](http://www.michael-pratt.com) is in Spanish.
