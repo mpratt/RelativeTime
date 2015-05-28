@@ -70,7 +70,7 @@ class RelativeTime
      * @param string $date
      * @return string
      */
-    public function TimeAgo($date)
+    public function timeAgo($date)
     {
         $interval = $this->getInterval(time(), $date);
         if ($interval->invert) {
@@ -86,7 +86,7 @@ class RelativeTime
      * @param string $date
      * @return string
      */
-    public function TimeLeft($date)
+    public function timeLeft($date)
     {
         $interval = $this->getInterval($date, time());
         if ($interval->invert) {
