@@ -85,7 +85,7 @@ The main object accepts an array with configuration directives
 
 | Directive     | Definition
 | ------------- |:-------------:
-| language      | The language to be used, for example `English`, `Spanish`,  `PortugueseBR` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()`
+| language      | The language to be used, for example `English`, `Spanish`,  `PortugueseBR`, `French`, `Czech` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()`
 | separator     | The separator between time units. `, ` by default.
 | truncate      | The number of units you want to display. By default it displays all of the available ones.
 | suffix        | Whether or not to append the `.... ago` or `..... left`
