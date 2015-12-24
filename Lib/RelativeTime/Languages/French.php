@@ -15,7 +15,7 @@ namespace RelativeTime\Languages;
 /**
  * French Translation
  */
-class French extends \RelativeTime\Adapters\Language
+class French extends LanguageAdapter
 {
     protected $strings = array(
         'now' => 'maintenant',
