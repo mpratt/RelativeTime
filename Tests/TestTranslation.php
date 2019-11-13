@@ -107,5 +107,3 @@ class TestTranslation extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, '1 Stunde, 5 Tage');
     }
 }
-
-?>

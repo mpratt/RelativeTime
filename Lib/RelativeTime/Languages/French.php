@@ -47,5 +47,3 @@ class French extends LanguageAdapter
         ),
     );
 }
-
-?>

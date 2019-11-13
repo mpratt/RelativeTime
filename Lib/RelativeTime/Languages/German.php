@@ -47,5 +47,3 @@ class German extends LanguageAdapter
         ),
     );
 }
-
-?>

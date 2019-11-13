@@ -47,5 +47,3 @@ class Spanish extends LanguageAdapter
         ),
     );
 }
-
-?>
