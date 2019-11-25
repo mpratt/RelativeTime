@@ -47,5 +47,3 @@ class PortugueseBR extends LanguageAdapter
         ),
     );
 }
-
-?>

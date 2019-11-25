@@ -85,5 +85,3 @@ abstract class LanguageAdapter implements ArrayAccess
         return array_keys($this->strings);
     }
 }
-
-?>

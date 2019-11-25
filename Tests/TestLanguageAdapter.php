@@ -64,5 +64,3 @@ class TestLanguageAdapter extends PHPUnit_Framework_TestCase
         $english['unknown_key'];
     }
 }
-
-?>

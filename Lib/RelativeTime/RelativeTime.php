@@ -158,4 +158,3 @@ class RelativeTime
         return $units;
     }
 }
-?>

@@ -175,5 +175,3 @@ class TestRelativeTime extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, '2 years, 6 months, 30 days, 15 hours, 12 minutes, 3 seconds ago');
     }
 }
-
-?>
