@@ -12,7 +12,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class TestLanguageAdapter extends TestCase
+class LanguageAdapterTest extends TestCase
 {
     public function testKeySet()
     {
@@ -60,7 +60,7 @@ class TestLanguageAdapter extends TestCase
 
     public function testInvalidIndex()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $english = new \RelativeTime\Languages\English();
         $english['unknown_key'];

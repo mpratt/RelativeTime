@@ -12,7 +12,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class TestRelativeTime extends TestCase
+class RelativeTimeTest extends TestCase
 {
     public function testDateConversion()
     {
@@ -100,7 +100,7 @@ class TestRelativeTime extends TestCase
 
     public function testInvalidDate()
     {
-        $this->setExpectedException('Exception');
+        $this->expectException('Exception');
 
         $rt = new \RelativeTime\RelativeTime();
         $result = $rt->convert('10 05 00', '10 06 00');
@@ -176,5 +176,4 @@ class TestRelativeTime extends TestCase
         $result = $rt->convert('2013-03-25 07:35:02', '2010-08-25 16:22:59');
         $this->assertEquals($result, '2 years, 6 months, 30 days, 15 hours, 12 minutes, 3 seconds ago');
     }
-
 }

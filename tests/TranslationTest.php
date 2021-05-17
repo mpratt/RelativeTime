@@ -12,7 +12,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class TestTranslation extends TestCase
+class TranslationTest extends TestCase
 {
     public function testSeparator()
     {
