@@ -10,7 +10,9 @@
  * file that was distributed with this source code.
  */
 
-class TestTranslation extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class TestTranslation extends TestCase
 {
     public function testSeparator()
     {

@@ -15,7 +15,7 @@ this README.
 
 ## Requirements
 
-- PHP >= 5.3
+- PHP >= 5.3 (Tested only on PHP +7.3)
 
 ### Installation
 

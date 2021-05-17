@@ -10,7 +10,9 @@
  * file that was distributed with this source code.
  */
 
-class TestRelativeTime extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class TestRelativeTime extends TestCase
 {
     public function testDateConversion()
     {
@@ -174,4 +176,5 @@ class TestRelativeTime extends PHPUnit_Framework_TestCase
         $result = $rt->convert('2013-03-25 07:35:02', '2010-08-25 16:22:59');
         $this->assertEquals($result, '2 years, 6 months, 30 days, 15 hours, 12 minutes, 3 seconds ago');
     }
+
 }
