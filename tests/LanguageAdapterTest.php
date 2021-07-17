@@ -10,7 +10,9 @@
  * file that was distributed with this source code.
  */
 
-class TestLanguageAdapter extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class LanguageAdapterTest extends TestCase
 {
     public function testKeySet()
     {
@@ -58,7 +60,7 @@ class TestLanguageAdapter extends PHPUnit_Framework_TestCase
 
     public function testInvalidIndex()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $english = new \RelativeTime\Languages\English();
         $english['unknown_key'];

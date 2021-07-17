@@ -10,7 +10,9 @@
  * file that was distributed with this source code.
  */
 
-class TestRelativeTime extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class RelativeTimeTest extends TestCase
 {
     public function testDateConversion()
     {
@@ -98,7 +100,7 @@ class TestRelativeTime extends PHPUnit_Framework_TestCase
 
     public function testInvalidDate()
     {
-        $this->setExpectedException('Exception');
+        $this->expectException('Exception');
 
         $rt = new \RelativeTime\RelativeTime();
         $result = $rt->convert('10 05 00', '10 06 00');

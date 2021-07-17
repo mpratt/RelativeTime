@@ -16,7 +16,13 @@
     "require": {
         "php": ">=5.3"
     },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
     "autoload": {
         "psr-0": {"RelativeTime": "Lib/"}
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
