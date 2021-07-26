@@ -19,7 +19,7 @@ class French extends LanguageAdapter
 {
     protected $strings = array(
         'now' => 'maintenant',
-        'ago' => 'depuis %s',
+        'ago' => 'il y a %s',
         'left' => '%s restant',
         'seconds' => array(
             'plural' => '%d secondes',
