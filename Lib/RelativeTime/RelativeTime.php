@@ -23,7 +23,7 @@ use \DateInterval;
 class RelativeTime
 {
     /** @var int Class constant with the current Version of this library */
-    const VERSION = '1.5.8';
+    const VERSION = '1.5.9';
 
     /** @var array Array With configuration options **/
     protected $config = array();
