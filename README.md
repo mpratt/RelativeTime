@@ -8,7 +8,8 @@
 [![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://paypal.me/mtpratt)
 
 RelativeTime is a lightweight and easy to use library that helps you calculate the time difference between two dates and returns the result in words
-(like, 5 minutes ago or 5 minutes left). The library supports other languages as well like Spanish, German, Czech, French and Portuguese.
+(like, 5 minutes ago or 5 minutes left). The library supports other languages as well like `Spanish`, `PortugueseBR`, `French`, `Czech`, `Russian`,
+`SimplifiedChinese`, `Swedish` and `German`
 
 It uses the standard \DateTime() and \DateInterval() classes found in modern PHP versions. For more information, please read the `Usage` section of
 this README.
@@ -103,10 +104,9 @@ The main object accepts an array with configuration directives
 
     $relativeTime = new RelativeTime($config);
 ```
-
 | Directive |                                                                                                   Definition                                                                                                   |
 | --------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| language  | The language to be used, for example `English`, `Spanish`, `PortugueseBR`, `French`, `Czech` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()` |
+| language  | The language to be used, for example `English`, `Spanish`, `PortugueseBR`, `French`, `Czech`, `Russian`, `SimplifiedChinese`, `Swedish` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()` |
 | separator |                                                                               The separator between time units. `, ` by default.                                                                               |
 | truncate  |                                                           The number of units you want to display. By default it displays all of the available ones.                                                           |
 | suffix    |                                                                            Whether or not to append the `.... ago` or `..... left`                                                                             |
