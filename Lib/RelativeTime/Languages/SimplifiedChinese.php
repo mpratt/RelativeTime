@@ -15,7 +15,7 @@ namespace RelativeTime\Languages;
 /**
  * Chinese (Simplified) Translation
 */
-class English extends LanguageAdapter
+class SimplifiedChinese extends LanguageAdapter
 {
     protected $strings = array(
         'now' => '刚刚',
