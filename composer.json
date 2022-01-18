@@ -17,12 +17,14 @@
         "php": ">=5.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "phpstan/phpstan": "^1.4"
     },
     "autoload": {
         "psr-0": {"RelativeTime": "Lib/"}
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "analyse": "phpstan analyse Lib --level=4 --no-progress"
     }
 }
