@@ -1,5 +1,4 @@
-name: PHP Composer
-
+name: Build Status
 on:
   push:
     branches: [ master ]
