@@ -12,11 +12,8 @@
 
 namespace RelativeTime;
 
+use \RelativeTime\Languages\LanguageAdapter;
 use \RelativeTime\Languages\English;
-use \RelativeTime\Languages\Spanish;
-use \RelativeTime\Languages\German;
-use \RelativeTime\Languages\PortugueseBR;
-use \ArrayAccess;
 
 /**
  * This class is responsible for translating
@@ -54,15 +51,15 @@ class Translation
     {
         $lang = $this->loadLanguage();
         if (empty($units)) {
-            return $lang['now'];
+            return $lang->now();
         }
 
         $translation = array();
         foreach ($units as $unit => $v) {
             if ($v == 1) {
-                $translation[] = sprintf($lang[$unit]['singular'], $v);
+                $translation[] = sprintf($lang->singular($unit), $v);
             } else {
-                $translation[] = sprintf($lang[$unit]['plural'], $v);
+                $translation[] = sprintf($lang->plural($unit), $v);
             }
         }
 
@@ -72,16 +69,16 @@ class Translation
         }
 
         if ($direction > 0) {
-            return sprintf($lang['ago'], $string);
+            return sprintf($lang->ago(), $string);
         } else {
-            return sprintf($lang['left'], $string);
+            return sprintf($lang->left(), $string);
         }
     }
 
     /**
      * Loads the language definitions
      *
-     * @return ArrayAccess
+     * @return LanguageAdapter
      */
     protected function LoadLanguage()
     {
@@ -102,7 +99,7 @@ class Translation
             }
         }
 
-        if ($l instanceof ArrayAccess) {
+        if ($l instanceof LanguageAdapter) {
             return $l;
         }
 

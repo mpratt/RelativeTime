@@ -12,7 +12,6 @@
 
 namespace RelativeTime\Languages;
 
-use \ArrayAccess;
 use \InvalidArgumentException;
 
 /**
@@ -20,68 +19,43 @@ use \InvalidArgumentException;
  * It basically gives the option to use an object
  * as as an array.
  */
-abstract class LanguageAdapter implements ArrayAccess
+abstract class LanguageAdapter
 {
+
     /** @var array Array with strings */
     protected $strings = array();
 
-    /**
-     * Sets a parameter
-     *
-     * @param string $id
-     * @param string $value
-     */
-    public function offsetSet($id, $value)
+    public function now()
     {
-        $this->strings[$id] = $value;
+        return $this->strings['now'];
     }
 
-    /**
-     * Gets a parameter
-     *
-     * @param string $id
-     * @return string
-     *
-     * @throws InvalidArgumentException if the id is not defined
-     */
-    public function offsetGet($id)
+    public function ago()
     {
-        if (!array_key_exists($id, $this->strings)) {
-            throw new InvalidArgumentException($id . ' is not defined');
+        return $this->strings['ago'];
+    }
+
+    public function left()
+    {
+        return $this->strings['left'];
+    }
+
+    public function singular($unit)
+    {
+        if (!isset($this->strings[$unit])) {
+            throw new InvalidArgumentException($unit . ' is not defined');
         }
 
-        return $this->strings[$id];
+        return $this->strings[$unit]['singular'];
     }
 
-    /**
-     * Checks if a parameter is set.
-     *
-     * @param string $id
-     * @return bool
-     */
-    public function offsetExists($id)
+    public function plural($unit)
     {
-        return array_key_exists($id, $this->strings);
+        if (!isset($this->strings[$unit])) {
+            throw new InvalidArgumentException($unit . ' is not defined');
+        }
+
+        return $this->strings[$unit]['plural'];
     }
 
-    /**
-     * Unsets a parameter
-     *
-     * @param string $id
-     * @return void
-     */
-    public function offsetUnset($id)
-    {
-        unset($this->strings[$id]);
-    }
-
-    /**
-     * Returns all defined keys
-     *
-     * @return array
-     */
-    public function keys()
-    {
-        return array_keys($this->strings);
-    }
 }

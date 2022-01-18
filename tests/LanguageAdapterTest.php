@@ -14,55 +14,28 @@ use PHPUnit\Framework\TestCase;
 
 class LanguageAdapterTest extends TestCase
 {
-    public function testKeySet()
+    public function testAgo()
     {
         $english = new \RelativeTime\Languages\English();
-        $english['ago'] = 'time ago';
-
-        $this->assertEquals($english['ago'], 'time ago');
+        $this->assertEquals($english->ago(), '%s ago');
     }
 
-    public function testKeyExists()
+    public function testnow()
     {
         $english = new \RelativeTime\Languages\English();
-        $this->assertTrue(isset($english['ago']));
-        $this->assertFalse(isset($english['some_random_key']));
+        $this->assertEquals($english->now(), 'just now');
     }
 
-    public function testUnsetKey()
+    public function testLeft()
     {
         $english = new \RelativeTime\Languages\English();
-        $this->assertTrue(isset($english['ago']));
-        unset($english['ago']);
-
-        $this->assertFalse(isset($english['ago']));
-    }
-
-    public function testGetKeys()
-    {
-        $english = new \RelativeTime\Languages\English();
-        $keys = $english->keys();
-
-        $defaultKeys = array(
-            'now',
-            'ago',
-            'left',
-            'seconds',
-            'minutes',
-            'hours',
-            'days',
-            'months',
-            'years',
-        );
-
-        $this->assertEquals($keys, $defaultKeys);
+        $this->assertEquals($english->left(), '%s left');
     }
 
     public function testInvalidIndex()
     {
         $this->expectException('InvalidArgumentException');
-
         $english = new \RelativeTime\Languages\English();
-        $english['unknown_key'];
+        $english->singular('decades');
     }
 }
