@@ -1,6 +1,6 @@
 # RelativeTime
 
-[![Build Status](https://api.travis-ci.org/mpratt/relativetime.svg?branch=master)](https://travis-ci.org/mpratt/relativetime)
+![Build Status](https://github.com/mpratt/RelativeTime/actions/workflows/tests.yml/badge.svg?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/mpratt/relativetime.svg)](https://packagist.org/packages/mpratt/relativetime)
 [![Monthly Downloads](https://img.shields.io/packagist/dm/mpratt/relativetime)](https://packagist.org/packages/mpratt/relativetime)
 [![Latest Stable Version](https://img.shields.io/packagist/v/mpratt/relativetime.svg)](https://packagist.org/packages/mpratt/relativetime)
