@@ -37,6 +37,10 @@ class Spanish extends LanguageAdapter
             'plural' => '%d dias',
             'singular' => '%d dia',
         ),
+        'weeks' => array(
+            'plural' => '%d semanas',
+            'singular' => '%d semana',
+        ),
         'months' => array(
             'plural' => '%d meses',
             'singular' => '%d mes',

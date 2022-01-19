@@ -37,6 +37,10 @@ class French extends LanguageAdapter
             'plural' => '%d jours',
             'singular' => '%d jour',
         ),
+        'weeks' => array(
+            'plural' => '%d semaines',
+            'singular' => '%d semaine',
+        ),
         'months' => array(
             'plural' => '%d mois',
             'singular' => '%d mois',

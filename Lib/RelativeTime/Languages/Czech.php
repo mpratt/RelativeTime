@@ -36,6 +36,10 @@ class Czech extends LanguageAdapter
             'plural' => '%d dní',
             'singular' => '%d den',
         ),
+        'weeks' => array(
+            'plural' => '%d týdny',
+            'singular' => '%d týden',
+        ),
         'months' => array(
             'plural' => '%d měsíců',
             'singular' => '%d měsíc',

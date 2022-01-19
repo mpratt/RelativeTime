@@ -37,6 +37,10 @@ class Swedish extends LanguageAdapter
             'plural' => '%d dagar',
             'singular' => '%d dag',
         ),
+        'weeks' => array(
+            'plural' => '%d veckor',
+            'singular' => '%d vecka',
+        ),
         'months' => array(
             'plural' => '%d månader',
             'singular' => '%d månad',

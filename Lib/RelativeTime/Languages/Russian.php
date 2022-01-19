@@ -36,6 +36,10 @@ class Russian extends LanguageAdapter
             'plural' => '%d дней',
             'singular' => '%d день',
         ),
+        'weeks' => array(
+            'plural' => '%d Недели',
+            'singular' => '%d Неделю',
+        ),
         'months' => array(
             'plural' => '%d месяцев',
             'singular' => '%d месяц',

@@ -37,6 +37,10 @@ class SimplifiedChinese extends LanguageAdapter
             'plural' => '%d 天',
             'singular' => '%d 天',
         ),
+        'weeks' => array(
+            'plural' => '%d 周',
+            'singular' => '%d 星期',
+        ),
         'months' => array(
             'plural' => '%d 月',
             'singular' => '%d 月',

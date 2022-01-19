@@ -37,6 +37,10 @@ class German extends LanguageAdapter
             'plural' => '%d Tage',
             'singular' => '%d Tag',
         ),
+        'weeks' => array(
+            'plural' => '%d Wochen',
+            'singular' => '%d Woche',
+        ),
         'months' => array(
             'plural' => '%d Monaten',
             'singular' => '%d Monat',
