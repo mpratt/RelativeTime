@@ -1,14 +1,14 @@
 <?php
 /**
- * RelativeTime.php
- *
- * @author  Michael Pratt <pratt@hablarmierda.net>
- * @link    http://www.michael-pratt.com/
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- *
- */
+* RelativeTime.php
+*
+* @author  Michael Pratt <pratt@hablarmierda.net>
+* @link    http://www.michael-pratt.com/
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*
+*/
 
 namespace RelativeTime;
 
@@ -18,8 +18,8 @@ use \DateTime;
 use \DateInterval;
 
 /**
- * The Main Class of the library
- */
+* The Main Class of the library
+*/
 class RelativeTime
 {
     /** @const int Class constant with the current Version of this library */
@@ -32,16 +32,17 @@ class RelativeTime
     protected $translation;
 
     /**
-     * Construct
-     *
-     * @param array $config Associative array with configuration directives
-     *
-     */
+* Construct
+*
+* @param array $config Associative array with configuration directives
+*
+*/
     public function __construct(array $config = array())
     {
         $this->config = array_merge(array(
             'language' => new English(),
             'separator' => ', ',
+            'use_weeks' => false,
             'suffix' => true,
             'truncate' => 0,
         ), $config);
@@ -50,12 +51,12 @@ class RelativeTime
     }
 
     /**
-     * Converts 2 dates to its relative time.
-     *
-     * @param string $fromTime
-     * @param string $toTime When null is given, uses the current date.
-     * @return string
-     */
+* Converts 2 dates to its relative time.
+*
+* @param string $fromTime
+* @param string $toTime When null is given, uses the current date.
+* @return string
+*/
     public function convert($fromTime, $toTime = null)
     {
         $interval = $this->getInterval($fromTime, $toTime);
@@ -65,11 +66,11 @@ class RelativeTime
     }
 
     /**
-     * Tells the time passed between the current date and the given date
-     *
-     * @param string $date
-     * @return string
-     */
+* Tells the time passed between the current date and the given date
+*
+* @param string $date
+* @return string
+*/
     public function timeAgo($date)
     {
         $interval = $this->getInterval(time(), $date);
@@ -81,11 +82,11 @@ class RelativeTime
     }
 
     /**
-     * Tells the time until the given date
-     *
-     * @param string $date
-     * @return string
-     */
+* Tells the time until the given date
+*
+* @param string $date
+* @return string
+*/
     public function timeLeft($date)
     {
         $interval = $this->getInterval($date, time());
@@ -97,13 +98,13 @@ class RelativeTime
     }
 
     /**
-     * Calculates the interval between the dates and returns
-     * an array with the valid time.
-     *
-     * @param string $fromTime
-     * @param string $toTime When null is given, uses the current date.
-     * @return DateInterval
-     */
+* Calculates the interval between the dates and returns
+* an array with the valid time.
+*
+* @param string $fromTime
+* @param string $toTime When null is given, uses the current date.
+* @return DateInterval
+*/
     protected function getInterval($fromTime, $toTime = null)
     {
         $fromTime = new DateTime($this->normalizeDate($fromTime));
@@ -113,11 +114,11 @@ class RelativeTime
     }
 
     /**
-     * Normalizes a date for the DateTime class
-     *
-     * @param string $date
-     * @return string
-     */
+* Normalizes a date for the DateTime class
+*
+* @param string $date
+* @return string
+*/
     protected function normalizeDate($date)
     {
         $date = str_replace(array('/', '|'), '-', $date);
@@ -132,22 +133,33 @@ class RelativeTime
     }
 
     /**
-     * Given a DateInterval, creates an array with the time
-     * units and truncates it when necesary.
-     *
-     * @param DateInterval $interval
-     * @return array
-     */
+* Given a DateInterval, creates an array with the time
+* units and truncates it when necesary.
+*
+* @param DateInterval $interval
+* @return array
+*/
     protected function calculateUnits(DateInterval $interval)
     {
         $units = array_filter(array(
             'years'   => (int) $interval->y,
             'months'  => (int) $interval->m,
+            'weeks'   => 1,
             'days'    => (int) $interval->d,
             'hours'   => (int) $interval->h,
             'minutes' => (int) $interval->i,
             'seconds' => (int) $interval->s,
         ));
+
+        if ($this->config['use_weeks'] && isset($units['days']) && $units['days'] > 6) {
+            $units['weeks'] = floor($units['days'] / 7);
+            $units['days'] = ($units['days'] - floor($units['weeks'] * 7));
+            if ($units['days'] <= 0) {
+                unset($units['days']);
+            }
+        } else {
+            unset($units['weeks']);
+        }
 
         if (empty($units)) {
             return array();

@@ -63,6 +63,28 @@ class RelativeTimeTest extends TestCase
         $this->assertEquals($result, 'just now');
     }
 
+    public function testWeekConversion()
+    {
+        $rt = new \RelativeTime\RelativeTime(['use_weeks' => true]);
+        $result = $rt->convert('2010-09-01', '2010-09-08');
+        $this->assertEquals($result, '1 week left');
+
+        $result = $rt->convert('2010-09-01', '2010-09-15');
+        $this->assertEquals($result, '2 weeks left');
+
+        $result = $rt->convert('2010-09-01', '2010-09-16');
+        $this->assertEquals($result, '2 weeks, 1 day left');
+
+        $result = $rt->convert('2018-09-01', '2010-09-16');
+        $this->assertEquals($result, '7 years, 11 months, 2 weeks, 1 day ago');
+
+        $result = $rt->convert('2010-09-01', '2010-09-29');
+        $this->assertEquals($result, '4 weeks left');
+
+        $result = $rt->convert('2010-09-01', '2010-09-30');
+        $this->assertEquals($result, '4 weeks, 1 day left');
+    }
+
     public function testTimeConversion()
     {
         $rt = new \RelativeTime\RelativeTime();

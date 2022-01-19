@@ -37,6 +37,10 @@ class English extends LanguageAdapter
             'plural' => '%d days',
             'singular' => '%d day',
         ),
+        'weeks' => array(
+            'plural' => '%d weeks',
+            'singular' => '%d week',
+        ),
         'months' => array(
             'plural' => '%d months',
             'singular' => '%d month',
