@@ -1,6 +1,6 @@
 # RelativeTime
 
-![Build Status](https://github.com/mpratt/RelativeTime/actions/workflows/tests.yml/badge.svg?branch=master)
+[![Build Status](https://github.com/mpratt/RelativeTime/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/mpratt/RelativeTime/actions)
 [![Total Downloads](https://img.shields.io/packagist/dt/mpratt/relativetime.svg)](https://packagist.org/packages/mpratt/relativetime)
 [![Monthly Downloads](https://img.shields.io/packagist/dm/mpratt/relativetime)](https://packagist.org/packages/mpratt/relativetime)
 [![Latest Stable Version](https://img.shields.io/packagist/v/mpratt/relativetime.svg)](https://packagist.org/packages/mpratt/relativetime)
@@ -100,16 +100,19 @@ The main object accepts an array with configuration directives
         'separator' => ', ',
         'suffix' => true,
         'truncate' => 0,
+        'use_weeks' => false,
     );
 
     $relativeTime = new RelativeTime($config);
 ```
+
 | Directive |                                                                                                   Definition                                                                                                   |
 | --------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | language  | The language to be used, for example `English`, `Spanish`, `PortugueseBR`, `French`, `Czech`, `Russian`, `SimplifiedChinese`, `Swedish` or `German` are supported. Even The instantiated object is allowed, as in `new \RelativeTime\Languages\English()` |
 | separator |                                                                               The separator between time units. `, ` by default.                                                                               |
 | truncate  |                                                           The number of units you want to display. By default it displays all of the available ones.                                                           |
 | suffix    |                                                                            Whether or not to append the `.... ago` or `..... left`                                                                             |
+| use_weeks | By default is set to false. When set to true it will include week numbers too.                                                                                                                                 |
 
 ## Author
 
