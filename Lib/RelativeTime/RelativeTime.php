@@ -144,7 +144,7 @@ class RelativeTime
         $units = array_filter(array(
             'years'   => (int) $interval->y,
             'months'  => (int) $interval->m,
-            'weeks'   => 1,
+            'weeks'   => 1, // We have to assign this here so we can preserve the order of the units.
             'days'    => (int) $interval->d,
             'hours'   => (int) $interval->h,
             'minutes' => (int) $interval->i,
