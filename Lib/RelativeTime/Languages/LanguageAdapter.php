@@ -25,6 +25,15 @@ abstract class LanguageAdapter
     /** @var array Array with strings */
     protected $strings = array();
 
+    public function set($key, $value)
+    {
+        if (!isset($this->strings[$key])) {
+            throw new InvalidArgumentException($key . ' is not defined');
+        }
+
+        return $this->strings[$key] = $value;
+    }
+
     public function now()
     {
         return $this->strings['now'];
