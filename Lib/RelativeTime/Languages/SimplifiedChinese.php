@@ -39,7 +39,7 @@ class SimplifiedChinese extends LanguageAdapter
         ),
         'weeks' => array(
             'plural' => '%d 周',
-            'singular' => '%d 星期',
+            'singular' => '%d 周',
         ),
         'months' => array(
             'plural' => '%d 月',
