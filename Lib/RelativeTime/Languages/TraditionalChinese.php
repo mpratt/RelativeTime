@@ -1,6 +1,6 @@
 <?php
 /**
- * SimplifiedChinese.php
+ * TraditionalChinese.php
  *
  * @author  Eric Zhang <ericxiang456@gmail.com>
  * @link    https://ericafterericplus.wordpress.com/
@@ -13,12 +13,12 @@
 namespace RelativeTime\Languages;
 
 /**
- * Chinese (Simplified) Translation
+ * Chinese (Traditional) Translation
 */
-class SimplifiedChinese extends LanguageAdapter
+class TraditionalChinese extends LanguageAdapter
 {
     protected $strings = array(
-        'now' => '刚刚',
+        'now' => '剛剛',
         'ago' => '%s 前',
         'left' => '剩下 %s',
         'seconds' => array(
@@ -26,12 +26,12 @@ class SimplifiedChinese extends LanguageAdapter
             'singular' => '%d 秒',
         ),
         'minutes' => array(
-            'plural' => '%d 分钟',
-            'singular' => '%d 分钟',
+            'plural' => '%d 分鐘',
+            'singular' => '%d 分鐘',
         ),
         'hours' => array(
-            'plural' => '%d 小时',
-            'singular' => '%d 小时',
+            'plural' => '%d 小時',
+            'singular' => '%d 小時',
         ),
         'days' => array(
             'plural' => '%d 天',

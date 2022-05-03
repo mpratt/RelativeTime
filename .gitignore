@@ -5,3 +5,4 @@ Tests/Coverage
 composer.lock
 composer.phar
 .phpunit.result.cache
+.idea
