@@ -18,9 +18,9 @@ namespace RelativeTime\Languages;
 class German extends LanguageAdapter
 {
     protected $strings = array(
-        'now' => 'just now',
+        'now' => 'gerade eben',
         'ago' => 'vor %s',
-        'left' => '%s nach',
+        'left' => 'in %s',
         'seconds' => array(
             'plural' => '%d Sekunden',
             'singular' => '%d Sekunde',
@@ -34,7 +34,7 @@ class German extends LanguageAdapter
             'singular' => '%d Stunde',
         ),
         'days' => array(
-            'plural' => '%d Tage',
+            'plural' => '%d Tagen',
             'singular' => '%d Tag',
         ),
         'weeks' => array(
