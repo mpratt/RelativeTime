@@ -90,12 +90,17 @@ class TranslationTest extends TestCase
         $translation = new \relativetime\translation(array('suffix' => false, 'language' => 'German'));
         $result = $translation->translate($units, 0);
 
-        $this->assertEquals($result, '1 Stunde, 5 Tage');
+        $this->assertEquals($result, '1 Stunde, 5 Tagen');
+
+        $translation = new \relativetime\translation(array('suffix' => true, 'language' => 'German'));
+        $result = $translation->translate($units, 0);
+
+        $this->assertEquals($result, 'in 1 Stunde, 5 Tagen');
 
         $translation = new \relativetime\translation(array('suffix' => false, 'language' => '\RelativeTime\Languages\German'));
         $result = $translation->translate($units, 0);
 
-        $this->assertEquals($result, '1 Stunde, 5 Tage');
+        $this->assertEquals($result, '1 Stunde, 5 Tagen');
 
 
         $translation = new \relativetime\translation(array('suffix' => false, 'language' => '\RelativeTime\Languages\PortugueseBR'));
@@ -106,6 +111,11 @@ class TranslationTest extends TestCase
         $translation = new \relativetime\translation(array('suffix' => false, 'language' => new \RelativeTime\Languages\German()));
         $result = $translation->translate($units, 0);
 
-        $this->assertEquals($result, '1 Stunde, 5 Tage');
+        $this->assertEquals($result, '1 Stunde, 5 Tagen');
+
+        $translation = new \relativetime\translation(array('suffix' => true, 'language' => new \RelativeTime\Languages\German()));
+        $result = $translation->translate($units, 0);
+
+        $this->assertEquals($result, 'in 1 Stunde, 5 Tagen');
     }
 }
